@@ -1,0 +1,15 @@
+https://www.digitalocean.com/community/tutorials/how-to-set-up-laravel-nginx-and-mysql-with-docker-compose
+
+jangan gunakan tabs di docker-composer.yml
+
+utk network space tetap sama dengan services dan version
+
+jika iptables error
+ iptables -t filter -N DOCKER
+ service docker restart
+
+jika container restart terus
+ docker logs --tail 30 --follow NAMA_CONTAINER
+
+jika ingin menambahkan konfigurasi ketika telah run
+ docker-composer run -e MYSQL_ROOT_PASSWORd=root db

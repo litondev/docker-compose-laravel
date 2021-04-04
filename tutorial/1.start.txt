@@ -1,0 +1,7 @@
+mkdir development-test
+
+cd development-test
+
+mkdir the-app php nginx mysql database
+
+git clone https:// the-app

@@ -1,0 +1,17 @@
+docker ps
+
+docker-compose exec -u root app php artisan key:generate
+
+docker-compose exec -u root app php artisan config:cache
+
+docker-compose exec -u root app chmod 777 public/*
+
+docker-compose exec -u root app chmod 777 storage/*
+
+docker-compose exec -u root db bash
+ mysql -u root -p
+ GRANT ALL ON laravel.* TO 'laraveluser'@'%' IDENTIFIED BY 'your_laravel_db_password';
+ FLUSH PRIVILEGES;
+ EXIT
+
+docker-compose exec -u root app php artisan migrate:fresh --seed
