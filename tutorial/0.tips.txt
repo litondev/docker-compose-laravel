@@ -12,4 +12,8 @@ jika container restart terus
  docker logs --tail 30 --follow NAMA_CONTAINER
 
 jika ingin menambahkan konfigurasi ketika telah run
- docker-composer run -e MYSQL_ROOT_PASSWORd=root db
+ docker-compose run -itd -e MYSQL_ROOT_PASSWORd=root db
+
+atau lebih baik langusung dengan perintah 
+ docker-compose up -d
+edit dulu yang mau di ubah
