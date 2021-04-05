@@ -17,3 +17,6 @@ jika ingin menambahkan konfigurasi ketika telah run
 atau lebih baik langusung dengan perintah 
  docker-compose up -d
 edit dulu yang mau di ubah
+
+jika ingin melihat env
+ docker inspect nama_container

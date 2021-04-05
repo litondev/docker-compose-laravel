@@ -13,7 +13,7 @@ services:
    SERVICE_TAGS: dev
   working_dir: /var/www
   volumes:
-   - ./:/var/www
+   - ./app:/var/www
    - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
   networks:
    - app-network
@@ -23,7 +23,7 @@ services:
   container_name: webserver
   environment:
    SERVICE_NAME: webserver
-   SERIVE_TAGS: dev
+   SERVICE_TAGS: dev
   restart: unless-stopped
   tty: true
   ports:
