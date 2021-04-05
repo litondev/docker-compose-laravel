@@ -6,7 +6,7 @@ cd development
 
 mkdir app php nginx mysql database
 
-git clone https:// app
+git clone https://github.com/litondev/docker-laravel-7 app
 
 cp ./docker-compose-laravel/mysql/my.cnf ./development/mysql/my.cnf
 cp ./docker-compose-laravel/php/local.ini ./development/php/local.ini
