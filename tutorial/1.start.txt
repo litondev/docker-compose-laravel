@@ -1,7 +1,15 @@
-mkdir development-test
+git clone https://github.com/litondev/docker-compose-laravel docker-compose-laravel
 
-cd development-test
+mkdir development
 
-mkdir the-app php nginx mysql database
+cd development
 
-git clone https:// the-app
+mkdir app php nginx mysql database
+
+git clone https:// app
+
+cp ./docker-compose-laravel/mysql/my.cnf ./development/mysql/my.cnf
+cp ./docker-compose-laravel/php/local.ini ./development/php/local.ini
+cp ./docker-compose-laravel/nginx/conf.d/app.conf ./development/nginx/conf.d/app.conf
+cp ./docker-compose-laravel/docker-compose.yml ./development/docker-compose.yml
+cp ./docker-compose-laravel/DockfileApp ./development/DockerfileApp
