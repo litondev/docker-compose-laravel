@@ -5,6 +5,7 @@ mkdir development
 cd development
 
 mkdir app php nginx mysql database
+mkdir nginx/conf.d
 
 git clone https://github.com/litondev/docker-laravel-7 app
 
