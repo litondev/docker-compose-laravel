@@ -2,6 +2,8 @@ docker ps
 
 # pastikan semua jalan
 
+cp ./app/.env.example ./app/.env
+
 docker-compose exec -u root app composer install
 
 docker-compose exec -u root app php artisan key:generate
