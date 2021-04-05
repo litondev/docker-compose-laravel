@@ -1,75 +1,74 @@
 version: '3'
-services:  
-  app:
-    build:
-      context: .
-      dockerfile: DockerfileApp
-    image: ldev/app
-    container_name: app
-    restart: unless-stopped
-    tty: true
-    environment:
-      SERVICE_NAME: app
-      SERVICE_TAGS: dev
-    working_dir: /var/www
-    volumes:
-      - ./:/var/www
-      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
-    networks:
-      - app-network
+services:
+ app:
+  build:
+   context: .
+   dockerfile: DockerfileApp
+  image: ldev/app
+  container_name: app
+  restart: unless-stopped
+  tty: true
+  environment:
+   SERVICE_NAME: app
+   SERVICE_TAGS: dev
+  working_dir: /var/www
+  volumes:
+   - ./:/var/www
+   - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+  networks:
+   - app-network
 
-  webserver:
-    image: nginx:alpine
-    container_name: webserver
-    environment:
-     SERVICE_NAME: webserver
-     SERIVE_TAGS: dev
-    restart: unless-stopped
-    tty: true
-    ports:
-      - "80:80"
-      - "443:443"    
-    volumes:
-      - ./:/var/www
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
-    networks:
-      - app-network
+ webserver:
+  image: nginx:alpine
+  container_name: webserver
+  environment:
+   SERVICE_NAME: webserver
+   SERIVE_TAGS: dev
+  restart: unless-stopped
+  tty: true
+  ports:
+   - "80:80"
+   - "443:443"
+  volumes:
+   - ./:/var/www
+   - ./nginx/conf.d/:/etc/nginx/conf.d/
+  networks:
+   - app-network
 
-  db:
-    image: mysql:5.7.22
-    container_name: db
-    restart: unless-stopped
-    tty: true
-    ports:
-      - "3306:3306"
-    environment:
-      MYSQL_DATABASE: laravel
-      MYSQL_ROOT_PASSWORD: root
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
-    volumes:
-      - ./database:/var/lib/mysql/
-      - ./mysql/my.cnf:/etc/mysql/my.cnf
-    networks:
-      - app-network
+ db:
+  image: mysql:5.7.22
+  container_name: db
+  restart: unless-stopped
+  tty: true
+  ports:
+   - "3306:3306"
+  environment:
+   MYSQL_DATABASE: laravel
+   MYSQL_ROOT_PASSWORD: root
+   SERVICE_TAGS: dev
+   SERVICE_NAME: mysql
+  volumes:
+   - ./database:/var/lib/mysql/
+   - ./mysql/my.cnf:/etc/mysql/my.cnf
+  networks:
+   - app-network
 
-   phpmyadmin:
-    image: phpmyadmin
-    container_name: phpmyadmin
-    restart: always
-    tty: true
-    ports:
-      - "8080:80"
-    environment:
-      PMA_ARBITRARY: 1
-      PMA_HOST: db
-      PMA_HOST: 3306
-      PMA_USER: laravel
-      PMA_PASSWORD: root
-    network:
-      - app-network
+ phpmyadmin:
+  image: phpmyadmin
+  container_name: phpmyadmin
+  restart: always
+  tty: true
+  ports:
+   - "8080:80"
+  environment:
+   PMA_ARBITRARY: 1
+   PMA_HOST: db
+   PMA_HOST: 3306
+   PMA_USER: laravel
+   PMA_PASSWORD: root
+  networks:
+   - app-network
 
-#dockerNetworks
 networks:
-  app-network:
-    driver: bridge
+ app-network:
+  driver: bridge
