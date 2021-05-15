@@ -2,5 +2,5 @@
 
 <b>Purpose :</b>
  <p>
-  I make this repository for my learning docker with laravel
- </p>
+ I make this repository for my learning docker to wrap laravel in vps(server) 
+</p>
