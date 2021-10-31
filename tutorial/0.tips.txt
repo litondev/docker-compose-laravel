@@ -1,6 +1,7 @@
 https://www.digitalocean.com/community/tutorials/how-to-set-up-laravel-nginx-and-mysql-with-docker-compose
 
 jangan gunakan tabs di docker-composer.yml
+gunakan conversi online dulu jika bener-bener susah
 
 utk network space tetap sama dengan services dan version
 
@@ -17,6 +18,9 @@ jika ingin menambahkan konfigurasi ketika telah run
 atau lebih baik langusung dengan perintah 
  docker-compose up -d
 edit dulu yang mau di ubah
+ 
+ docker-compose up -d --build 
+digunakan untuk mengubah container dengan Dockerfilenya
 
 jika ingin melihat env
  docker inspect nama_container
