@@ -22,5 +22,8 @@ edit dulu yang mau di ubah
  docker-compose up -d --build 
 digunakan untuk mengubah container dengan Dockerfilenya
 
+ docker-compose restart 
+digunakan hanya utk mengupdate config
+
 jika ingin melihat env
  docker inspect nama_container
