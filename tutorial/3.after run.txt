@@ -4,6 +4,8 @@ docker ps
 
 cp ./app/.env.example ./app/.env
 
+docker-compose exec -u root app bash
+
 docker-compose exec -u root app composer update
 
 docker-compose exec -u root app php artisan key:generate
